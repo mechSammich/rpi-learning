@@ -24,7 +24,7 @@
 #include <getopt.h>
 #include <errno.h>
 #include <limits.h>
-
+#include <sys/wait.h>
 /* Maximum length for a file-name argument. */
 #define MAX_FILENAME_LEN 256
 
