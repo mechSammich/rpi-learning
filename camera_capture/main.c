@@ -148,6 +148,10 @@ static int parse_args(int argc, char *argv[], CaptureConfig *cfg)
     while ((opt = getopt_long(argc, argv, "o:w:H:t:", long_opts, &long_idx)) != -1) {
         switch (opt) {
         case 'o':
+            if (optarg[0] == '\0') {
+                fprintf(stderr, "error: output file name cannot be empty\n");
+                return -1;
+            }
             if (strlen(optarg) >= MAX_FILENAME_LEN) {
                 fprintf(stderr, "error: output file name is too long "
                         "(max %d characters)\n", MAX_FILENAME_LEN - 1);
